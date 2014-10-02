@@ -3,8 +3,6 @@ body {
 }
 
 h1 {
-    text-align: center;
-    text-transform: uppercase;
     font-weight: bold;
 }
 
@@ -31,26 +29,32 @@ h1 {
     position: relative;
 }
 
-#customersOpt, #suppliersOpt {
+#customersOpt, #suppliersOpt, #customersList {
             display: none;
         }
-
-#category {
+        
+.leftMenu {
     margin: 4px;
     min-width: 100px;
     border: 1px solid #ccc;
-    text-transform: uppercase;
     font-weight: bold;
 }
 
-#categoryTitle {
+.leftMenu {
+    margin: 4px;
+    width: 140px;
+    border: 1px solid #ccc;
+    font-weight: bold;
+}
+
+.leftMenuTitle {
     padding: 8px;
     background-color: #444;
     text-align: center;
     color: #fff;
 }
 
-#category .categoryLink {
+.leftMenu .leftMenuLink {
     display: block;
     padding: 6px;
     text-align: center;
@@ -58,17 +62,57 @@ h1 {
     color: #000;
 }
 
-#category .categoryLink:hover {
+.leftMenu .leftMenuLink:hover {
     color: #fff;
     background-color: #CB1919;
 }
 
 #details {
     margin: 4px;
-    padding: 4px;
+    padding: 10px;
     min-height: 200px;
-    min-width: 650px;
+    min-width: 620px;
     border: 1px solid #ccc;
     float: left;
     position: relative;
+}
+
+#customersList {
+    border: 1px solid #ccc;
+}
+
+#customersList table {
+    margin: 10px auto;
+    border-collapse: collapse;
+}
+
+#customersList table th {
+    background-color: #444;
+    color: #fff;
+    padding: 4px;
+    border: 0;
+    width: 80px;
+}
+
+#customersList table td {
+    padding: 4px;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.center {
+    text-align: center;
+}
+
+.compName {
+    width: 350px;
+}
+
+.regDate {
+    width: 120px;
+}
+
+.upper {
+    text-transform: uppercase;
 }

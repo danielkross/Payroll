@@ -2,37 +2,77 @@
 
 <html>
 <head>
-    <title>Page Title</title>
+    <title>Payroll manager</title>
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css"
-          href="{% static 'payroll/style.css' %}" />
-    <script type="text/javascript">
-        var yo = "{{ text }}";
-        function getName() {
-            var form = document.getElementById("form")
-            var name = form.name.value;
-            alert('Siema ' + name + "!");
-        }
+          href="{% static 'payroll/css/style.css' %}" />
+    <script type="text/javascript" >
+        document.addEventListener('DOMContentLoaded', function() {
+            if ("{{ opt }}" == 'customers') {
+                customersOpt.style.display = 'block';
+                customersList.style.display = 'block';
+            }
+            if ("{{ opt }}" == 'suppliers') {
+                suppliersOpt.style.display = 'block';
+            }
+        }, false);
     </script>
+    <script src="{% static 'payroll/js/index.js' %}"></script>
 </head>
 
 <body>
 <div id="wrapper">
-    <h1>Payroll</h1>
-    <form id="form">
-        <input type="text" name="name"/>
-    </form>
-    <h2><a href="#" onclick="getName();">Klik</a></h2>
+    <h1 class="upper center">Payroll</h1>
     <div id="main">
-        <div id="menu">
-            Menu
+        <div id="left-sidebar">
+            <div id="customersOpt">
+                <div class="leftMenu class="upper">
+                    <div class="leftMenuTitle upper">Customers</div>
+                    {% for link in customersLinks %}
+                    <a class="leftMenuLink upper" href="payroll/customers/{{ link }}">
+                        {{ link }}
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div id="suppliersOpt">
+                <div class="leftMenu">
+                    <div class="leftMenuTitle upper">Supplires</div>
+                    {% for link in suppliersLinks %}
+                    <a class="leftMenuLink upper" href="payroll/suppliers/{{ link }}">
+                        {{ link }}
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="leftMenu">
+                <div class="leftMenuTitle upper">Menu</div>
+                {% for link in menuLinks %}
+                <a class="leftMenuLink upper"
+                   href="{% url 'payroll:mainSite' link %}">
+                    {{ link }}
+                </a>
+                {% endfor %}
+            </div>
         </div>
         <div id="details">
-            Details
+            <div id="customersList">
+                <h2 class="center upper">Customers list</h2>
+                <table>
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Registered</th>
+                    </tr>
+                    <tr>
+                        <td class="center">AC32</td>
+                        <td class="center compName">Company name</td>
+                        <td class="center regDate">23-09-2014</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
-    
-    
 </div>
 </body>
 </html>
