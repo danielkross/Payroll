@@ -101,6 +101,31 @@ h1 {
     border-right: 1px solid #ccc;
 }
 
+#suppliersList {
+    border: 1px solid #ccc;
+}
+
+#suppliersList table {
+    margin: 10px auto;
+    border-collapse: collapse;
+}
+
+#suppliersList table th {
+    background-color: #444;
+    color: #fff;
+    padding: 4px;
+    border: 0;
+    width: 80px;
+}
+
+#suppliersList table td {
+    padding: 4px;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+
 .center {
     text-align: center;
 }

@@ -11,9 +11,12 @@
             if ("{{ opt }}" == 'customers') {
                 customersOpt.style.display = 'block';
                 customersList.style.display = 'block';
+                suppliersList.style.display = 'none';
             }
             if ("{{ opt }}" == 'suppliers') {
                 suppliersOpt.style.display = 'block';
+                suppliersList.style.display = 'block';
+                customersList.style.display = 'none';
             }
         }, false);
     </script>
@@ -29,7 +32,7 @@
                 <div class="leftMenu class="upper">
                     <div class="leftMenuTitle upper">Customers</div>
                     {% for link in customersLinks %}
-                    <a class="leftMenuLink upper" href="payroll/customers/{{ link }}">
+                    <a class="leftMenuLink upper" href="customers/{{ link }}">
                         {{ link }}
                     </a>
                     {% endfor %}
@@ -39,7 +42,7 @@
                 <div class="leftMenu">
                     <div class="leftMenuTitle upper">Supplires</div>
                     {% for link in suppliersLinks %}
-                    <a class="leftMenuLink upper" href="payroll/suppliers/{{ link }}">
+                    <a class="leftMenuLink upper" href="suppliers/{{ link }}">
                         {{ link }}
                     </a>
                     {% endfor %}
@@ -64,9 +67,26 @@
                         <th>Name</th>
                         <th>Registered</th>
                     </tr>
+                    {% for customer in customers %}
+                    <tr>
+                        <td class="center">{{ customer.number }}</td>
+                        <td class="center compName">{{ customer.name }}</td>
+                        <td class="center regDate">{{ customer.date }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div id="suppliersList">
+                <h2 class="center upper">Suppliers list</h2>
+                <table>
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Registered</th>
+                    </tr>
                     <tr>
                         <td class="center">AC32</td>
-                        <td class="center compName">Company name</td>
+                        <td class="center compName">Supplier name</td>
                         <td class="center regDate">23-09-2014</td>
                     </tr>
                 </table>
