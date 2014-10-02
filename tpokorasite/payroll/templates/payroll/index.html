@@ -12,11 +12,13 @@
                 customersOpt.style.display = 'block';
                 customersList.style.display = 'block';
                 suppliersList.style.display = 'none';
+                welcomeMsg.style.display = 'none';
             }
             if ("{{ opt }}" == 'suppliers') {
                 suppliersOpt.style.display = 'block';
                 suppliersList.style.display = 'block';
                 customersList.style.display = 'none';
+                welcomeMsg.style.display = 'none';
             }
         }, false);
     </script>
@@ -25,7 +27,9 @@
 
 <body>
 <div id="wrapper">
-    <h1 class="upper center">Payroll</h1>
+    <h1 id="header" class="upper center">
+        <a href="{% url 'payroll:home' %}" >Payroll</a>
+    </h1>
     <div id="main">
         <div id="left-sidebar">
             <div id="customersOpt">
@@ -61,6 +65,9 @@
             </div>
         </div>
         <div id="details">
+            <div id="welcomeMsg">
+                <h2 class="center upper">Welcome to payroll manager!</h2>
+            </div>
             <div id="customersList">
                 <div id="newCustomer">
                     <form id="newUserForm" action="" method="post">

@@ -2,8 +2,13 @@ body {
     font-family: "Helvetical", sans-serif;
 }
 
-h1 {
-    font-weight: bold;
+#header a {
+    text-decoration: none;
+    color: #000;
+}
+
+#header a:hover {
+    color: #444;
 }
 
 #wrapper {
@@ -134,7 +139,6 @@ h1 {
     border-left: 1px solid #ccc;
     border-right: 1px solid #ccc;
 }
-
 
 .center {
     text-align: center;
