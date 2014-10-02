@@ -77,8 +77,17 @@ h1 {
     position: relative;
 }
 
+#newCustomer, #newOrder, #newSupplier {
+    display: none;
+}
+
+#newCustomer table .newCustomerLabel {
+    text-align: right;
+}
+
 #customersList {
     border: 1px solid #ccc;
+    display: none;
 }
 
 #customersList table {
@@ -103,6 +112,7 @@ h1 {
 
 #suppliersList {
     border: 1px solid #ccc;
+    display: none;
 }
 
 #suppliersList table {
@@ -128,6 +138,10 @@ h1 {
 
 .center {
     text-align: center;
+}
+
+.right {
+    text-align: right;
 }
 
 .compName {

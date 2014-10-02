@@ -9,6 +9,11 @@ function show() {
         }, false);
 }
 
-function yo() {
-    alert("siemanko");
+function showForm(elementName) {
+    var element = document.getElementById(elementName);
+    if (element.style.display == 'none') {
+        element.style.display = 'block';
+    } else {
+        element.style.display = 'none';
+    }
 }

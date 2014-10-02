@@ -31,21 +31,23 @@
             <div id="customersOpt">
                 <div class="leftMenu class="upper">
                     <div class="leftMenuTitle upper">Customers</div>
-                    {% for link in customersLinks %}
-                    <a class="leftMenuLink upper" href="customers/{{ link }}">
-                        {{ link }}
+                    <a class="leftMenuLink upper" href="#"
+                       onclick="showForm('newCustomer');">
+                        New
                     </a>
-                    {% endfor %}
+                    <a class="leftMenuLink upper" href="#"
+                       onclick="showForm('newOrder');">
+                        Order
+                    </a>
                 </div>
             </div>
             <div id="suppliersOpt">
                 <div class="leftMenu">
                     <div class="leftMenuTitle upper">Supplires</div>
-                    {% for link in suppliersLinks %}
-                    <a class="leftMenuLink upper" href="suppliers/{{ link }}">
-                        {{ link }}
+                    <a class="leftMenuLink upper" href="#"
+                        onclick="showForm('newSupplier');">
+                        New
                     </a>
-                    {% endfor %}
                 </div>
             </div>
             <div class="leftMenu">
@@ -60,6 +62,29 @@
         </div>
         <div id="details">
             <div id="customersList">
+                <div id="newCustomer">
+                    <form id="newUserForm" action="" method="post">
+                        <table>
+                            <tr>
+                                <th colspan="2" class="upper">New user</th>
+                            </tr>
+                            <tr>
+                                <td class="right">Number:</td>
+                                <td><input type="text" name="customerNumber" /></td> 
+                            </tr>
+                            <tr>
+                                <td class="right">Name:</td>
+                                <td><input type="text" name="customerName" /></td> 
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="center">
+                                    <input type="submit" value="Register" />
+                                </td>
+                            </tr>
+                        </table> 
+                    </form>
+                </div>
+                
                 <h2 class="center upper">Customers list</h2>
                 <table>
                     <tr>
@@ -77,6 +102,28 @@
                 </table>
             </div>
             <div id="suppliersList">
+                <div id="newSupplier">
+                    <form id="newSupplierForm" action="" method="post">
+                        <table>
+                            <tr>
+                                <th colspan="2" class="upper">New supplier</th>
+                            </tr>
+                            <tr>
+                                <td class="right">Number:</td>
+                                <td><input type="text" name="supplierNumber" /></td> 
+                            </tr>
+                            <tr>
+                                <td class="right">Name:</td>
+                                <td><input type="text" name="supplierName" /></td> 
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="center">
+                                    <input type="submit" value="Register" />
+                                </td>
+                            </tr>
+                        </table> 
+                    </form>
+                </div>
                 <h2 class="center upper">Suppliers list</h2>
                 <table>
                     <tr>
@@ -84,11 +131,13 @@
                         <th>Name</th>
                         <th>Registered</th>
                     </tr>
+                    {% for supplier in suppliers %}
                     <tr>
-                        <td class="center">AC32</td>
-                        <td class="center compName">Supplier name</td>
-                        <td class="center regDate">23-09-2014</td>
+                        <td class="center">{{ supplier.number }}</td>
+                        <td class="center compName">{{ supplier.name }}</td>
+                        <td class="center regDate">{{ supplier.date }}</td>
                     </tr>
+                    {% endfor %}
                 </table>
             </div>
         </div>
