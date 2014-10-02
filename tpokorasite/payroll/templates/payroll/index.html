@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Page Title</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'payroll/style.css' %}" />
+    <script type="text/javascript">
+        var yo = "{{ text }}";
+        function getName() {
+            var form = document.getElementById("form")
+            var name = form.name.value;
+            alert('Siema ' + name + "!");
+        }
+    </script>
+</head>
+
+<body>
+<div id="wrapper">
+    <h1>Payroll</h1>
+    <form id="form">
+        <input type="text" name="name"/>
+    </form>
+    <h2><a href="#" onclick="getName();">Klik</a></h2>
+    <div id="main">
+        <div id="menu">
+            Menu
+        </div>
+        <div id="details">
+            Details
+        </div>
+    </div>
+    
+    
+</div>
+</body>
+</html>
