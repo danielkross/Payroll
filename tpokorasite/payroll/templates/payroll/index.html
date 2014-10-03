@@ -41,7 +41,7 @@
                     </a>
                     <a class="leftMenuLink upper" href="#"
                        onclick="showForm('newOrder');">
-                        Order
+                        Batch
                     </a>
                 </div>
             </div>
@@ -70,7 +70,8 @@
             </div>
             <div id="customersList">
                 <div id="newCustomer">
-                    <form id="newUserForm" action="" method="post">
+                    <form id="newUserForm" action="newCustomer" method="post">
+                        {% csrf_token %}
                         <table>
                             <tr>
                                 <th colspan="2" class="upper">New user</th>
@@ -110,7 +111,8 @@
             </div>
             <div id="suppliersList">
                 <div id="newSupplier">
-                    <form id="newSupplierForm" action="" method="post">
+                    <form id="newSupplierForm" action="newSupplier" method="post">
+                        {% csrf_token %}
                         <table>
                             <tr>
                                 <th colspan="2" class="upper">New supplier</th>
