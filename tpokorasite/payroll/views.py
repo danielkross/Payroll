@@ -1,13 +1,15 @@
 from django.shortcuts import render
 from django.utils import timezone
-from payroll.models import Customer, Supplier, CustomerBatch
+from payroll.models import Customer, Supplier, CustomerBatch, SupplierBatch
 from django.http import HttpResponseRedirect
 
 # Create your views here.
+# welcome view
 def home(request):
     menuLinks = ('customers', 'suppliers', 'bank')
     return render(request, 'payroll/index.html', {'menuLinks' : menuLinks,})
-    
+
+# mainsite view
 def mainSite(request, param):
     menuLinks = ('customers', 'suppliers')
     customers = Customer.objects.all()
@@ -49,4 +51,23 @@ def addNewSupplier(name, number):
     print 'register date: ' + str(supplier.date)
     supplier.save()
     
-    
+
+# batches view
+def customerBatch(request):
+    menuLinks = ('customers', 'suppliers')
+    customers = Customer.objects.all()
+    customersBatch = CustomerBatch.objects.all()
+    return render(request, 'payroll/batch.html', { 'menuLinks' : menuLinks,
+                                                   'customers' : customers,
+                                                   'customersBatch' : customersBatch,
+                                                   'opt' : 'customers'})
+
+
+def supplierBatch(request):
+    menuLinks = ('customers', 'suppliers')
+    suppliers = Supplier.objects.all()
+    suppliersBatch = SupplierBatch.objects.all()
+    return render(request, 'payroll/batch.html', { 'menuLinks' : menuLinks,
+                                                   'suppliers' : suppliers,
+                                                   'suppliers' : suppliersBatch,
+                                                   'opt' : 'suppliers', })

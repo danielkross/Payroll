@@ -20,6 +20,7 @@ class CustomerBatch(models.Model):
     date = models.DateTimeField('date registered')
     price = models.FloatField()
 
+
 class SupplierBatch(models.Model):
     supplier = models.ForeignKey(Supplier)
     description = models.CharField(max_length=255)

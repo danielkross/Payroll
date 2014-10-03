@@ -12,13 +12,11 @@
                 customersOpt.style.display = 'block';
                 customersList.style.display = 'block';
                 suppliersList.style.display = 'none';
-                welcomeMsg.style.display = 'none';
             }
             if ("{{ opt }}" == 'suppliers') {
                 suppliersOpt.style.display = 'block';
                 suppliersList.style.display = 'block';
                 customersList.style.display = 'none';
-                welcomeMsg.style.display = 'none';
             }
         }, false);
     </script>
@@ -77,9 +75,6 @@
             </div>
         </div>
         <div id="details">
-            <div id="welcomeMsg">
-                <h2 class="center upper">Welcome to payroll manager!</h2>
-            </div>
             <div id="customersList">
                 <div id="newCustomer">
                     <form id="newUserForm" action="newCustomer" method="post">
@@ -112,22 +107,28 @@
                         </table>
                     </form>
                 </div>
-                
-                <h2 class="center upper">Customers list</h2>
-                <table>
-                    <tr>
-                        <th>No.</th>
-                        <th>Name</th>
-                        <th>Registered</th>
-                    </tr>
-                    {% for customer in customers %}
-                    <tr>
-                        <td class="center">{{ customer.number }}</td>
-                        <td class="center compName">{{ customer.name }}</td>
-                        <td class="center regDate">{{ customer.date }}</td>
-                    </tr>
-                    {% endfor %}
-                </table>
+                <div id="customerBatch">
+                    {% if customersBatch %}
+                        <table>
+                            <tr>
+                                <th class="center">Cust. No.</th>
+                                <th class="center">Description</th>
+                                <th class="center">Price</th>
+                                <th class="center">Date</th>
+                            </tr>
+                            {% for batch in customersBatch %}
+                            <tr>
+                                <td class="center">{{ batch.customer.number }}</td>
+                                <td class="center batchDesc">{{ batch.description }}</td>
+                                <td class="center">{{ batch.price }}</td>
+                                <td class="center regDate">{{ batch.date }}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    {% else %}
+                        <h2 class="center">No customer batch registered</h2>
+                    {% endif %}
+                </div>
             </div>
             <div id="suppliersList">
                 <div id="newSupplier">
@@ -153,21 +154,29 @@
                         </table> 
                     </form>
                 </div>
-                <h2 class="center upper">Suppliers list</h2>
-                <table>
-                    <tr>
-                        <th>No.</th>
-                        <th>Name</th>
-                        <th>Registered</th>
-                    </tr>
-                    {% for supplier in suppliers %}
-                    <tr>
-                        <td class="center">{{ supplier.number }}</td>
-                        <td class="center compName">{{ supplier.name }}</td>
-                        <td class="center regDate">{{ supplier.date }}</td>
-                    </tr>
-                    {% endfor %}
-                </table>
+                <div id="suppliersBatch">
+                    
+                    {% if suppliersBatch %}
+                        <table>
+                            <tr>
+                                <th class="center">Supp. No.</th>
+                                <th class="center">Description</th>
+                                <th class="center">Price</th>
+                                <th class="center">Date</th>
+                            </tr>
+                            {% for batch in suppliersBatch %}
+                            <tr>
+                                <td class="center">{{ batch.supplier.number }}</td>
+                                <td class="center batchDesc">{{ batch.description }}</td>
+                                <td class="center">{{ batch.price }}</td>
+                                <td class="center regDate">{{ batch.date }}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    {% else %}
+                        <h2 class="center">No supplier batch registered</h2>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>

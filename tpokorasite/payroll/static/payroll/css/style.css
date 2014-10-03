@@ -152,6 +152,10 @@ body {
     width: 350px;
 }
 
+.batchDesc {
+    width: 280px;
+}
+
 .regDate {
     width: 120px;
 }
